@@ -20,6 +20,9 @@ app.all("/", function (req, res, next) {
 
 app.get('/', function (req, res, next) {
   console.log("PORT",PORT)
+  console. log(req. socket. remoteAddress);
+  console. log(req. ip);
+  res. send("your IP is: " + req. ip);
   res.json({data:"lol"});
 });
 
