@@ -9,6 +9,7 @@ app.use(express.static('public'));
 server.listen(PORT, () => console.log('Servidor iniciado en ',PORT));
 
 app.get('/', function (req, res) {
+  console.log("PORT",PORT)
   res.sendFile(__dirname + '/public/index.html');
 });
 
