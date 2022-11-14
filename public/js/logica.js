@@ -4,7 +4,7 @@ let salida = document.getElementById("salida")
 let notificaciones = document.getElementById("notificaciones")
 let boton = document.getElementById("enviar")
 //Crear una instancia de SocketIO, recibe como parámetro el url del servidor al que se conectará
-var socket = io.connect('https://chat-almita.cyclic.app:8080');
+var socket = io.connect('https://localhost');
 
 var clientes=[]
 
