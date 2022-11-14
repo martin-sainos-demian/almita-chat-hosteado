@@ -4,10 +4,6 @@ var io = require('socket.io')(server);
 
 const PORT = process.env.PORT;
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
-
 app.get('/', function (req, res) {
   console.log("PORT",PORT)
   res.json({data:"lol"});
@@ -45,3 +41,7 @@ app.all("/", function (req, res, next) {
   next();
 });
 //end of global
+
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
+});
