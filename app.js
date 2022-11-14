@@ -3,8 +3,10 @@ var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+const PORT = process.env.PORT;
+
 app.use(express.static('public'));
-server.listen(8080, () => console.log('Servidor iniciado en 8080'));
+server.listen(PORT, () => console.log('Servidor iniciado en ',PORT));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
