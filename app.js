@@ -1,12 +1,12 @@
 const express = require('express');
 var app = require('express')();
-var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 const PORT = process.env.PORT;
 
-app.use(express.static('public'));
-server.listen(PORT, () => console.log('Servidor iniciado en ',PORT));
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
+});
 
 app.get('/', function (req, res) {
   console.log("PORT",PORT)
