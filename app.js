@@ -32,6 +32,7 @@ io.on('connection', function (socket) {
   });
 
 });
+
 //global
 app.all("*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
