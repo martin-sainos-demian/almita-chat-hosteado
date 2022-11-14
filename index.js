@@ -23,26 +23,27 @@ app.get('/', function (req, res, next) {
   res.json({data:"lol"});
 });
 
-io.on('connection', function (socket) {
-  console.log('socket conectado',socket.id);
-  io.emit('conectado', {texto: 'Nuevo socket conectado: ' + socket.id +`<br>`} );
+app.get('/socket.io/', function (req, res, next) {
+  io.on('connection', function (socket) {
+    console.log('socket conectado',socket.id);
+    io.emit('conectado', {texto: 'Nuevo socket conectado: ' + socket.id +`<br>`} );
 
-  socket.on('disconnect', () => {
-  	console.log('socket desconectado',socket.id);
-    io.emit('desconectado', {texto: 'Socket desconectado.'+ socket.id +`<br>`});
-  
+    socket.on('disconnect', () => {
+      console.log('socket desconectado',socket.id);
+      io.emit('desconectado', {texto: 'Socket desconectado.'+ socket.id +`<br>`});
+    
+    });
+
+    socket.on('chat:mensaje', (data) => {
+      io.emit('chat:mensaje', data);
+    });
+
+    socket.on('chat:escribiendo', (usuario) => {
+      socket.broadcast.emit('chat:escribiendo', usuario);
+    });
+
   });
-
-  socket.on('chat:mensaje', (data) => {
-    io.emit('chat:mensaje', data);
-  });
-
-  socket.on('chat:escribiendo', (usuario) => {
-    socket.broadcast.emit('chat:escribiendo', usuario);
-  });
-
 });
-
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
