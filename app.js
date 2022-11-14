@@ -17,7 +17,7 @@ app.all("/", function (req, res, next) {
 });
 //end of global
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res, next) {
   console.log("PORT",PORT)
   res.json({data:"lol"});
 });
