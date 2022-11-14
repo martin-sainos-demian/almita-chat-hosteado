@@ -10,7 +10,7 @@ server.listen(PORT, () => console.log('Servidor iniciado en ',PORT));
 
 app.get('/', function (req, res) {
   console.log("PORT",PORT)
-  res.send("lol");
+  res.json({data:"lol"});
 });
 
 io.on('connection', function (socket) {
