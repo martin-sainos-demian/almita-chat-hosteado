@@ -44,6 +44,7 @@ app.get('/socket.io/', function (req, res, next) {
     });
 
   });
+  res.send(io)
 });
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
