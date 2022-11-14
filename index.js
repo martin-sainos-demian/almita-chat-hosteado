@@ -24,7 +24,7 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/socket.io/', function (req, res, next) {
-  console.log("params",req.params)
+  console.log("query",req.query)
   io.on('connection', function (socket) {
     console.log('socket conectado',socket.id);
     io.emit('conectado', {texto: 'Nuevo socket conectado: ' + socket.id +`<br>`} );
