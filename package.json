@@ -2,7 +2,7 @@
   "name": "2_sockets_basicos",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
     "express": "^4.15.2",
     "install": "^0.8.8",
@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
+    "start": "node index.js",
     "dev": "nodemon run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
