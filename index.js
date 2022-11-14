@@ -26,11 +26,6 @@ app.get('/', function (req, res, next) {
   res.json({data:"lol"});
 });
 
-app.get('/socket.io/', function (req, res, next) {
-  console.log("query",req.query)
-  
-  res.send(JSON.parse(io))
-});
 io.on('connection', function (socket) {
   console.log('socket conectado',socket.id);
   io.emit('conectado', {texto: 'Nuevo socket conectado: ' + socket.id +`<br>`} );
