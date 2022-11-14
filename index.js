@@ -16,6 +16,16 @@ app.all("/", function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });
+http.all("*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+http.all("/", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 //end of global
 
 app.get('/', function (req, res, next) {
@@ -41,10 +51,6 @@ io.on('connection', function (socket) {
     socket.broadcast.emit('chat:escribiendo', usuario);
   });
 
-});
-
-http.listen(3000, function() {
-  console.log('listening on *:3000');
 });
 
 app.listen(PORT, () => {
