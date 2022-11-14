@@ -22,14 +22,14 @@ app.get('/', function (req, res, next) {
   console.log("PORT",PORT)
   console. log(req. socket. remoteAddress);
   console. log(req. ip);
-  res. send("your IP is: " + req. ip);
-  res.json({data:"lol"});
+  res.json({data:"lol",
+            ip:req. ip});
 });
 
 app.get('/socket.io/', function (req, res, next) {
   console.log("query",req.query)
   
-  res.send("JSON.parse(io)")
+  res.json({data:"JSON.parse(io)"})
 });
 io.on('connection', function (socket) {
   console.log('socket conectado',socket.id);
