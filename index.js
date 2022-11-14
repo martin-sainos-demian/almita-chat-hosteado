@@ -26,7 +26,7 @@ app.get('/', function (req, res, next) {
             ip:req. ip});
 });
 
-app.get('socket.io/', function (req, res, next) {
+app.get('/socket.io/', function (req, res, next) {
   console.log("query",req.query)
   
   res.json({data:"JSON.parse(io)"})
